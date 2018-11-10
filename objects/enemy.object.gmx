@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>healt = 200
 //The distance within the player's radius that the enemy:
-atkRange = sqr(2000) //attacks
-proxInner = sqr(1700) //chases the player
-proxOutter = sqr(2100)//fleas from the player
+atkRange = sqr(500) //attacks
+proxInner = sqr(425) //chases the player
+proxOutter = sqr(525)//fleas from the player
 canShoot = 0
 </string>
           </argument>
@@ -61,13 +61,13 @@ if (instance_exists(player) &amp;&amp; canShoot % 3 == 0){
         
     //If the enemy is too close, backout
     if (sqr(x - player.x) + sqr(y - player.y) &lt; proxInner){
-        move_towards_point(player.x, player.y, -20)
+        move_towards_point(player.x, player.y, -5)
         image_angle = point_direction(x, y, player.x, player.y) + 90
     }
         
     //If the enemy is far away, move towards player
     if (sqr(x - player.x) + sqr(y - player.y) &gt; proxOutter){
-        move_towards_point(player.x, player.y, 50)
+        move_towards_point(player.x, player.y, 12)
         image_angle = point_direction(x, y, player.x, player.y) - 90
     }
 }

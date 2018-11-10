@@ -53,7 +53,7 @@ image_angle = point_direction(x, y, newX, newY)
             <kind>1</kind>
             <string>other.rocketHealth -= global.bulletDamage
 instance_destroy(self);
-monwy += 50000000 + 5000000 * random_range(-1, 1)
+global.money += 50000000 + 5000000 * random_range(-1, 1)
 </string>
           </argument>
         </arguments>
@@ -78,7 +78,7 @@ monwy += 50000000 + 5000000 * random_range(-1, 1)
             <kind>1</kind>
             <string>other.BIGhealth -= global.bulletDamage
 instance_destroy(self);
-money += 500000000 + 50000000 * random_range(-1, 1)
+global.money += 500000000 + 50000000 * random_range(-1, 1)
 </string>
           </argument>
         </arguments>
@@ -103,7 +103,7 @@ money += 500000000 + 50000000 * random_range(-1, 1)
             <kind>1</kind>
             <string>other.healt -= global.bulletDamage
 instance_destroy(self);
-money += 100000000 + 10000000 * random_range(-1, 1)
+global.money += 100000000 + 10000000 * random_range(-1, 1)
 </string>
           </argument>
         </arguments>

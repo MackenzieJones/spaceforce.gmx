@@ -30,6 +30,7 @@ rof = 17
 knockback = 3
 ammo = 90
 knocked = false
+global.money = 0
 alarm_set(0, 0)
 </string>
           </argument>
