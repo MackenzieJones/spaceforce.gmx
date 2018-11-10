@@ -59,9 +59,9 @@
     <object>objects\firstRoomDirector</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\menuRoom</room>
     <room>rooms\mainRoom</room>
     <room>rooms\firstRoom</room>
-    <room>rooms\menuRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
