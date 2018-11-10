@@ -1,0 +1,25 @@
+if keyboard_check(ord("W")){
+    vspeed = -30
+}else if keyboard_check(ord("S")){
+    vspeed = 30
+}else{
+    vspeed = 0
+}
+
+if keyboard_check(ord("A")){
+    hspeed = -30
+}else if keyboard_check(ord("D")){
+    hspeed = 30
+}else{
+    hspeed = 0
+}
+if hspeed != 0 && vspeed !=0{
+    hspeed = hspeed/2
+    vspeed = vspeed/2
+}
+
+uv = xprevious * yprevious + x * y
+normUV = sqrt(sqr(xprevious) +  sqr(yprevious))
+image_angle = darccos(uv/normUV)
+
+//image_angle = point_direction(x, y, mouse_x, mouse_y)
