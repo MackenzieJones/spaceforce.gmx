@@ -80,13 +80,14 @@ oldH = 0
           <argument>
             <kind>1</kind>
             <string>//Calculation for movement, pretty sloppy, but I don't care because it works
-if keyboard_check(ord("W")){
-    oldV = vspeed
-    oldH = hspeed
+isW = keyboard_check(ord("W"))
+isS = keyboard_check(ord("S"))
+isA = keyboard_check(ord("A"))
+isD = keyboard_check(ord("D"))
+
+if (isW){
     vspeed -= turn
-}else if keyboard_check(ord("S")){
-    oldV = vspeed
-    oldH = hspeed
+}else if (isS){
     vspeed += turn
 }else{
     if (vspeed &gt; 0)
@@ -96,13 +97,9 @@ if keyboard_check(ord("W")){
     if (vspeed &lt; turn &amp;&amp; vspeed &gt; -turn)
         vspeed = 0
 }
-if keyboard_check(ord("A")){
-    oldV = vspeed
-    oldH = hspeed
+if isA{
     hspeed -= turn
-}else if keyboard_check(ord("D")){
-    oldV = vspeed
-    oldH = hspeed
+}else if (isD){
     hspeed += turn
 }else{
     if (hspeed &gt; 0)
@@ -119,6 +116,9 @@ if (speed &lt; -global.mainSpeed/10)
     speed = -global.mainSpeed/10
 
 //Point ship in movement direction
+if (isW || isS || isA || isD)
+    oldV = vspeed
+    oldH = hspeed
 image_angle = point_direction(0, 0, oldH, oldV) - 90
     
 //Adjustment for knockback
