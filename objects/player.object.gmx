@@ -32,6 +32,9 @@ ammo = 90
 knocked = false
 global.money = 0
 alarm_set(0, 0)
+turn = 2
+oldV = 0
+oldH = 0
 </string>
           </argument>
         </arguments>
@@ -78,28 +81,46 @@ alarm_set(0, 0)
             <kind>1</kind>
             <string>//Calculation for movement, pretty sloppy, but I don't care because it works
 if keyboard_check(ord("W")){
-    vspeed = -global.mainSpeed/10
+    oldV = vspeed
+    oldH = hspeed
+    vspeed -= turn
 }else if keyboard_check(ord("S")){
-    vspeed = global.mainSpeed/10
+    oldV = vspeed
+    oldH = hspeed
+    vspeed += turn
 }else{
-    vspeed = 0
+    if (vspeed &gt; 0)
+        vspeed -= turn
+    else if (vspeed &lt; 0)
+        vspeed += turn
+    if (vspeed &lt; turn &amp;&amp; vspeed &gt; -turn)
+        vspeed = 0
 }
 if keyboard_check(ord("A")){
-    hspeed = -global.mainSpeed/10
+    oldV = vspeed
+    oldH = hspeed
+    hspeed -= turn
 }else if keyboard_check(ord("D")){
-    hspeed = global.mainSpeed/10
+    oldV = vspeed
+    oldH = hspeed
+    hspeed += turn
 }else{
-    hspeed = 0
+    if (hspeed &gt; 0)
+        hspeed -= turn
+    else if (hspeed &lt; 0)
+        hspeed += turn
+    if (hspeed &lt; turn &amp;&amp; hspeed &gt; -turn)
+        hspeed = 0
 }
 //Adjustment for diagonal speed
-if hspeed != 0 &amp;&amp; vspeed !=0{
-    hspeed = hspeed/sqrt(2)
-    vspeed = vspeed/sqrt(2)
-}
+if (speed &gt; global.mainSpeed/10)
+    speed = global.mainSpeed/10
+if (speed &lt; -global.mainSpeed/10)
+    speed = -global.mainSpeed/10
 
 //Point ship in movement direction
-image_angle = point_direction(0, 0, hspeed, vspeed) - 90
-
+image_angle = point_direction(0, 0, oldH, oldV) - 90
+    
 //Adjustment for knockback
 if (knocked){
     hspeed += knockback * -cos(point_direction(x, y, mouse_x, mouse_y)/180 * pi)
