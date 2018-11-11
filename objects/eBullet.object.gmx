@@ -25,10 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>newX = player.x + random_range(-60, 60)
-newY = player.y + random_range(-60, 60)
+            <string>newX = satellite.x + random_range(-60, 60)
+newY = satellite.y + random_range(-60, 60)
 move_towards_point(newX, newY, global.mainSpeed/5);
 image_angle = point_direction(x, y, newX, newY)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="satellite">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>satellite.satelliteHealth -= 2
+instance_destroy(self)
 </string>
           </argument>
         </arguments>
@@ -51,7 +75,7 @@ image_angle = point_direction(x, y, newX, newY)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>health -= 1;
+            <string>health -= 2;
 instance_destroy(self);
 </string>
           </argument>

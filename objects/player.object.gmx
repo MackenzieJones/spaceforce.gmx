@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>health = 100
 rof = 17
-knockback = 3
+knockback = 2
 ammo = 90
 knocked = false
 global.money = 0
@@ -129,7 +129,7 @@ if (knocked){
 }
 
 //If the player is alive, center camera around him and don't go out of bounds
-if (health &gt; 0){
+if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
     view_xview = x - view_wview/2
     view_yview = y - view_hview/2
 }else{

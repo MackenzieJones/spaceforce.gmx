@@ -27,6 +27,7 @@
     <sprite>sprites\spaceContinue</sprite>
     <sprite>sprites\gameOverSprite</sprite>
     <sprite>sprites\levelWonSprite</sprite>
+    <sprite>sprites\satSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -63,6 +64,7 @@
     <object>objects\firstRoomDirector</object>
     <object>objects\gameOverScreen</object>
     <object>objects\levelWon</object>
+    <object>objects\satellite</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\menuRoom</room>

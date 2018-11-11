@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>isFiring = false
-BIGhealth = 700;
+BIGhealth = 300;
 //The distance within the player's radius that the enemy:
 atkRange = sqr(625) //attacks
 proxInner = sqr(425) //fleas from the player
