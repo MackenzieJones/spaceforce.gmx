@@ -30,8 +30,9 @@ line[0] = ""
 line[1] = ""
 line[2] = ""
 complete = false
-index = 0
+dIndex = 0
 pos = 1
+
 dialogue[0] = "Thanks to millions of taxpaying Americans and the hard working folks at Space Force, we can finally train our troops for the war on space."
 dialogue[1] = "We're starting with just you."
 dialogue[2] = "The force has provided the budget to create ships manned by artificial intelligence as training dummies."
@@ -40,6 +41,14 @@ dialogue[4] = "Once you've passed the training, we can guarentee you'll be skill
 dialogue[5] = "Hopefully we'll dominate space space just as well as we do the air space."
 dialogue[6] = "Now go, we believe in your ability to adapt to this radical new climate."
 dialogue[7] = "For now, you will be our Space Force."
+
+//Make a new 'Rest of string' variable
+//Every time there's a new line, set the 'rest-of-string' to the rest of the 
+//current line of dialogue, the rest of the dialogue is pos to length(dialogue[dIndex])
+//A new pos variable is needed for this 'rest-of-string', that begins at 1 whenever
+// 'rest-of-string' changes
+ros = dialogue[dIndex]
+rosPos = pos
 </string>
           </argument>
         </arguments>
@@ -109,26 +118,35 @@ dialogue[7] = "For now, you will be our Space Force."
           <argument>
             <kind>1</kind>
             <string>//If there's more characters to generate
-if (array_length_1d(dialogue) != index &amp;&amp; string_length(dialogue[index]) &gt;= pos+1){
+if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dialogue[dIndex])){
     //Get the current line, generate next character
-    if (pos%40 == 0 || string_char_at(dialogue[index], pos) == ' ' &amp;&amp; isNextWordTooLong(dialogue[index], pos+1, 40)){
-        if (currLine &lt;=1)
-            currLine += 1
-        else{
-            line[0] = line[1]
-            line[1] = line[2]
-            line[2] = ""
-        }
+    
+    if (string_char_at(ros, rosPos) == ' '){
+        if (isNextWordTooLong(ros, rosPos+1, 40)){
+            if (currLine &lt;=1){
+                currLine += 1
+            }else{
+                line[0] = line[1]
+                line[1] = line[2]
+                line[2] = ""
+            }
+            ros = string_copy(ros, rosPos, string_length(ros))
+            rosPos = 1
+        }//else{
+            //rosPos -= 1
+        //}
     }
-    line[currLine] = line[currLine] + string_char_at(dialogue[index], pos)
+
+    line[currLine] = line[currLine] + string_char_at(ros, rosPos)
       
+    rosPos += 1
     pos += 1
     global.bobble = true
     
 }else
     global.bobble = false
     
-if (array_length_1d(dialogue) == index){
+if (array_length_1d(dialogue) == dIndex){
     complete = true
     global.bobble = false
 }
@@ -186,17 +204,20 @@ draw_sprite(shipSprite, 0, x+120, y-250)
             <string>if (complete){
     room_goto(mainRoom)
 
-}else if (pos &lt; string_length(dialogue[index])){
+}else if (pos-1 &lt; string_length(dialogue[dIndex])){
     //If the line isn't done yet, then finish the line
-    line[currLine] += string_copy(dialogue[index], pos, string_length(dialogue[index]))
-    pos = string_length(dialogue[index])
+    line[currLine] += string_copy(dialogue[dIndex], pos, string_length(dialogue[dIndex]))
+    pos = string_length(dialogue[dIndex])
 }else{
     //Go to next line in text box and dialogue
     if (currLine &lt;=1)
         currLine += 1
-    index += 1
+    dIndex += 1
     pos = 1
     textToDraw = ""
+    
+    ros = dialogue[dIndex]
+    rosPos = 1
     
     if (currLine &gt; 1){
         line[0] = line[1]
