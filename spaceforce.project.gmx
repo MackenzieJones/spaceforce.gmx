@@ -25,6 +25,8 @@
     <sprite>sprites\trumpSprite</sprite>
     <sprite>sprites\boxSprite</sprite>
     <sprite>sprites\spaceContinue</sprite>
+    <sprite>sprites\gameOverSprite</sprite>
+    <sprite>sprites\levelWonSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -59,11 +61,13 @@
     <object>objects\introDialogue</object>
     <object>objects\trump</object>
     <object>objects\firstRoomDirector</object>
+    <object>objects\gameOverScreen</object>
+    <object>objects\levelWon</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\firstRoom</room>
     <room>rooms\menuRoom</room>
     <room>rooms\mainRoom</room>
+    <room>rooms\firstRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

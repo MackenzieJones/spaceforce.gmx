@@ -25,15 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.mainSpeed = 3
+            <string>global.newLevel = true
+global.level = 0
+global.doOnce = true
+global.finishedLevel = false
+global.playerDead = false
+
+global.mainSpeed = 150
 global.bulletDamage = 10
-level = 0
+
 maxInLevel = 4
 global.enemyStockCount = 0
 global.enemyLoadedCount = 0
 enemies[0] = 0
 enemies[1] = 0
 enemies[2] = 0
+
 global.money = 0
 </string>
           </argument>
@@ -58,32 +65,32 @@ global.money = 0
           <argument>
             <kind>1</kind>
             <string>//Load next level
-if ((global.enemyStockCount + global.enemyLoadedCount) &lt; 1){
-    level += 1
-    health = 100
-    if (level &lt; 4){
-        enemies[0] = 3*level
+if (global.newLevel){
+    global.doOnce = true
+    global.level += 1
+    global.newLevel = false
+    if (global.level == 1){
+        enemies[0] = 6
         enemies[1] = 0
         enemies[2] = 0
-        global.enemyStockCount = 3*level
-    }else if (level &lt; 7){
-        enemies[0] = 9
-        enemies[1] = 3*(level-3)
+        global.enemyStockCount = 6
+    }else if (global.level == 2){
+        enemies[0] = 6
+        enemies[1] = 3
         enemies[2] = 0
-        global.enemyStockCount = 3*(level-3) + 9
+        global.enemyStockCount = 9
+    }else if (global.level == 3){
+        enemies[0] = 6
+        enemies[1] = 6
+        enemies[2] = 3
+        global.enemyStockCount = 15
     }else{
-        enemies[0] = 9
-        enemies[1] = 9
-        enemies[2] = 3*(level-3)
-        global.enemyStockCount = 3*(level-6) + 18
+        room_goto(finalRoom)
     }
 }
 
-if (level &gt; 9)
-    room_goto(menuRoom)
-
 //Spawn in the level
-if(global.enemyLoadedCount &lt; maxInLevel &amp;&amp; global.enemyStockCount &gt; 0){
+if(!global.playerDead &amp;&amp; global.enemyLoadedCount &lt; maxInLevel &amp;&amp; global.enemyStockCount &gt; 0){
     ran = random(2)
     if ran &lt; 1 &amp;&amp; enemies[0] &gt; 0{
         instance_create(player.x + random_range(-20, 20)*125, player.y + random_range(-20, 20)*125, enemy)
@@ -102,13 +109,30 @@ if(global.enemyLoadedCount &lt; maxInLevel &amp;&amp; global.enemyStockCount &gt
         enemies[2] -= 1
         global.enemyStockCount -= 1
         global.enemyLoadedCount += 1
-        
     }
 }
 
+global.finishedLevel = global.enemyLoadedCount + global.enemyStockCount &lt;= 0
 
+if (global.finishedLevel || global.playerDead){
+    instance_destroy(bullet)
+    instance_destroy(eBullet)
+    instance_destroy(enemy)
+    instance_destroy(BIGenemy)
+    instance_destroy(rocket)
+    instance_destroy(lazerAim)
+    instance_destroy(BIGlazer)
+    global.enemyLoadedCount = 0
+    global.enemyStockCount = 0
+    
+}
 
-
+if (!global.playerDead &amp;&amp; global.finishedLevel &amp;&amp; global.doOnce){
+    global.doOnce = false
+    instance_create(player.x, player.y, levelWon)
+    instance_destroy(player)
+    //Wait for player input to proceed
+}
 </string>
           </argument>
         </arguments>
@@ -133,7 +157,7 @@ if(global.enemyLoadedCount &lt; maxInLevel &amp;&amp; global.enemyStockCount &gt
             <kind>1</kind>
             <string>//Display score and enemies
 draw_set_font(gameFont)
-draw_text(4,700, "Level: " + string(level));
+draw_text(4,700, "Level: " + string(global.level));
 draw_text(4,750, "Enemies Remaining: " + string(global.enemyStockCount + global.enemyLoadedCount));
 
 </string>

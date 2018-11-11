@@ -133,8 +133,9 @@ if (health &gt; 0){
     view_xview = x - view_wview/2
     view_yview = y - view_hview/2
 }else{
+    instance_create(x, y, gameOverScreen)
+    global.playerDead = true
     instance_destroy(self)
-    room_goto(menuRoom)
 }
 </string>
           </argument>
