@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.mainSpeed = 2
+            <string>global.mainSpeed = 3
 global.bulletDamage = 10
 level = 0
 maxInLevel = 4

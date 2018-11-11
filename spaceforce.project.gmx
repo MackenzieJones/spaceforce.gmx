@@ -24,6 +24,7 @@
     <sprite>sprites\menuNavSprite</sprite>
     <sprite>sprites\trumpSprite</sprite>
     <sprite>sprites\boxSprite</sprite>
+    <sprite>sprites\spaceContinue</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -31,6 +32,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_menu.gml</script>
+    <script>scripts\isNextWordTooLong.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\menuFont</font>
@@ -59,9 +61,9 @@
     <object>objects\firstRoomDirector</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\firstRoom</room>
     <room>rooms\menuRoom</room>
     <room>rooms\mainRoom</room>
-    <room>rooms\firstRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>line[0] = ""
+            <string>currLine = 0
+line[0] = ""
 line[1] = ""
 line[2] = ""
 complete = false
@@ -34,11 +35,11 @@ pos = 1
 dialogue[0] = "Thanks to millions of taxpaying Americans and the hard working folks at Space Force, we can finally train our troops for the war on space."
 dialogue[1] = "We're starting with just you."
 dialogue[2] = "The force has provided the budget to create ships manned by artificial intelligence as training dummies."
-dialogue[3] = "Training begins now, outmove and outshoot these top-of-the-line robots."
-dialogue[4] = "Once you're trained enough to beat them, we can guarentee you'll be skilled enough to protect our satellites."
-dialogue[5] = "Hopefully we'll dominate space space just as well as we do the air space"
-dialogue[5] = "Now go, we beleive in your ability to adapt to this radical new climate."
-dialogue[6] = "For now, you will be our Space Force"
+dialogue[3] = "Training begins now, protect the fake sattelites from being dstroyed."
+dialogue[4] = "Once you've passed the training, we can guarentee you'll be skilled enough to protect our real satellites."
+dialogue[5] = "Hopefully we'll dominate space space just as well as we do the air space."
+dialogue[6] = "Now go, we believe in your ability to adapt to this radical new climate."
+dialogue[7] = "For now, you will be our Space Force."
 </string>
           </argument>
         </arguments>
@@ -107,26 +108,29 @@ dialogue[6] = "For now, you will be our Space Force"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alarm[0] == -1){
-    alarm[0] = 1
-    
-    //If there's more characters to generate
-    if (array_length_1d(dialogue) != index-1 &amp;&amp; string_length(dialogue[index]) != pos-1){
-        //Generate next character
-        if (index &lt;= 1)
-            line[index] = line[index] + string_char_at(dialogue[index], pos)
-        else if (index &gt; 1)
-            line[2] = line[2] + string_char_at(dialogue[index], pos)
-        pos += 1
-        global.bobble = true
-    }else
-        global.bobble = false
-    if (array_length_1d(dialogue) == index){
-        complete = true
-        global.bobble = false
+            <string>//If there's more characters to generate
+if (array_length_1d(dialogue) != index &amp;&amp; string_length(dialogue[index]) &gt;= pos+1){
+    //Get the current line, generate next character
+    if (pos%40 == 0 || string_char_at(dialogue[index], pos) == ' ' &amp;&amp; isNextWordTooLong(dialogue[index], pos+1, 40)){
+        if (currLine &lt;=1)
+            currLine += 1
+        else{
+            line[0] = line[1]
+            line[1] = line[2]
+            line[2] = ""
+        }
     }
+    line[currLine] = line[currLine] + string_char_at(dialogue[index], pos)
+      
+    pos += 1
+    global.bobble = true
     
+}else
+    global.bobble = false
     
+if (array_length_1d(dialogue) == index){
+    complete = true
+    global.bobble = false
 }
 </string>
           </argument>
@@ -152,9 +156,11 @@ dialogue[6] = "For now, you will be our Space Force"
             <kind>1</kind>
             <string>draw_set_colour(c_white)
 draw_set_font(trumpFont)
-draw_text(x, y, line[0])
-draw_text(x+50, y, line[1])
-draw_text(x+100, y, line[2])
+draw_text(x-50, y, line[0])
+draw_text(x-50, y+50, line[1])
+draw_text(x-50, y+100, line[2])
+draw_sprite(spaceContinue, 0, x+200, y+240)
+draw_sprite(shipSprite, 0, x+120, y-250)
 </string>
           </argument>
         </arguments>
@@ -179,10 +185,24 @@ draw_text(x+100, y, line[2])
             <kind>1</kind>
             <string>if (complete){
     room_goto(mainRoom)
+
+}else if (pos &lt; string_length(dialogue[index])){
+    //If the line isn't done yet, then finish the line
+    line[currLine] += string_copy(dialogue[index], pos, string_length(dialogue[index]))
+    pos = string_length(dialogue[index])
 }else{
+    //Go to next line in text box and dialogue
+    if (currLine &lt;=1)
+        currLine += 1
     index += 1
     pos = 1
     textToDraw = ""
+    
+    if (currLine &gt; 1){
+        line[0] = line[1]
+        line[1] = line[2]
+        line[2] = ""
+    }
 }
 </string>
           </argument>
