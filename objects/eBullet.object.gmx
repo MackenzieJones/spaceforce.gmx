@@ -29,6 +29,8 @@
 newY = satellite.y + random_range(-60, 60)
 move_towards_point(newX, newY, global.mainSpeed/5);
 image_angle = point_direction(x, y, newX, newY)
+bulletSound = audio_play_sound(bullet4, 1, false)
+audio_sound_gain(bulletSound, 0.25, 0)
 </string>
           </argument>
         </arguments>

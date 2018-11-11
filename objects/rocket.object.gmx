@@ -85,6 +85,8 @@ alarm[0] = 3*room_speed
 if(rocketHealth &lt; 1){
     if (random(5) &gt; 3)
         instance_create(x+40, y, healthPickup)
+    if (random(5) &gt; 4)
+        instance_create(x+40, y, ammoPickup)
     global.enemyLoadedCount -= 1
     instance_destroy(self);
       

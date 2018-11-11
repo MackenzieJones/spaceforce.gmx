@@ -118,11 +118,11 @@ rosPos = pos
           <argument>
             <kind>1</kind>
             <string>//If there's more characters to generate
-if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dialogue[dIndex])){
+if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dialogue[dIndex]) &amp;&amp; string_char_at(ros, rosPos) != '.'){
     //Get the current line, generate next character
     
     if (string_char_at(ros, rosPos) == ' '){
-        if (isNextWordTooLong(ros, rosPos+1, 40)){
+        if (isNextWordTooLong(ros, rosPos+1, 39)){
             if (currLine &lt;=1){
                 currLine += 1
             }else{
@@ -130,21 +130,22 @@ if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dia
                 line[1] = line[2]
                 line[2] = ""
             }
-            ros = string_copy(ros, rosPos, string_length(ros))
-            rosPos = 1
-        }//else{
-            //rosPos -= 1
-        //}
+            rosPos += 1
+        }
     }
-
+        
     line[currLine] = line[currLine] + string_char_at(ros, rosPos)
       
     rosPos += 1
     pos += 1
     global.bobble = true
     
-}else
+}else{
+    if (global.bobble)
+        line[currLine] = line[currLine] + '.'
     global.bobble = false
+    
+}
     
 if (array_length_1d(dialogue) == dIndex){
     complete = true
