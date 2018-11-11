@@ -66,7 +66,7 @@ global.money = 0
             <kind>1</kind>
             <string>//Load next level
 if (global.newLevel){
-    satellite.satelliteHealth = 500
+    satellite.satelliteHealth = 1200
     global.doOnce = true
     global.level += 1
     global.newLevel = false

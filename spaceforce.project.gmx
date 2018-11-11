@@ -44,6 +44,8 @@
     <font>fonts\fnt_debug</font>
     <font>fonts\fnt_dialogue</font>
     <font>fonts\trumpFont</font>
+    <font>fonts\ammoFont</font>
+    <font>fonts\magFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\player</object>

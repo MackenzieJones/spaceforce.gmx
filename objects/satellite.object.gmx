@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>satelliteHealth = 500
+            <string>satelliteHealth = 1200
 </string>
           </argument>
         </arguments>

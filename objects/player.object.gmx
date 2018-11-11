@@ -28,14 +28,38 @@
             <string>health = 100
 rof = 17
 knockback = 2
-ammo = 90
+ammoReserve = 120
+mag = 30
 knocked = false
 global.money = 0
 alarm_set(0, 0)
 turn = 2
 oldV = 0
 oldH = 0
+reloading = false
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -127,6 +151,24 @@ if (knocked){
     vspeed += knockback * sin(point_direction(x, y, mouse_x, mouse_y)/180 * pi)
     knocked = false
 }
+if (!reloading &amp;&amp; mag &lt;= 0){
+    reloading = true
+    alarm[1] = 30
+}
+//Reloading
+if (reloading){
+    if (alarm_get(1) == -1){
+        reloading = false
+        ammoReserve += mag
+        if (ammoReserve &gt; 30){
+            mag = 30
+            ammoReserve -= 30
+        }else{
+            mag = ammoReserve
+            ammoReserve = 0
+        }
+    }
+}
 
 //If the player is alive, center camera around him and don't go out of bounds
 if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
@@ -159,12 +201,12 @@ if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alarm_get(0) == -1){
+            <string>if (alarm_get(0) == -1 &amp;&amp; mag &gt; 0){
     alarm_set(0, room_speed/rof)
     instance_create(x, y, bullet)
     bulletSound = audio_play_sound(bullet4, 1, false)
     audio_sound_pitch(bulletSound, random_range(0.9, 1.1))
-    ammo -= 1
+    mag -= 1
     knocked = true
 }
 </string>
@@ -210,6 +252,56 @@ if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
           <argument>
             <kind>4</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite(bulletSprite, 0, 60, 500)
+draw_set_font(magFont)
+draw_text(100, 500, mag)
+draw_set_font(ammoFont)
+draw_text(200, 500, ammoReserve)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>reloading = true
+alarm[1] = 30
+//play reloading sound
+</string>
           </argument>
         </arguments>
       </action>
