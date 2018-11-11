@@ -83,8 +83,11 @@ alarm[0] = 3*room_speed
 }
 
 if(rocketHealth &lt; 1){
+    if (random(5) &gt; 3)
+        instance_create(x+40, y, healthPickup)
+    global.enemyLoadedCount -= 1
     instance_destroy(self);
-    global.enemyLoadedCount -= 1    
+      
 }
 </string>
           </argument>
@@ -108,7 +111,7 @@ if(rocketHealth &lt; 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>health -= 50
+            <string>health -= 40
 instance_destroy(self);
 global.enemyLoadedCount -= 1    
 

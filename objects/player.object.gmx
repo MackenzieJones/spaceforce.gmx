@@ -271,7 +271,7 @@ if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(bulletSprite, 0, 60, 500)
+            <string>draw_sprite(ammoSprite, 0, 60, 500)
 draw_set_font(magFont)
 draw_text(100, 500, mag)
 draw_set_font(ammoFont)

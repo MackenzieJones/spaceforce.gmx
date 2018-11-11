@@ -56,55 +56,7 @@ canShoot = 0
           </argument>
           <argument>
             <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>3</string>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -127,9 +79,6 @@ canShoot = 0
           <argument>
             <kind>1</kind>
             <string>isFiring = false
-
-if instance_exists(BIGlazer)
-    instance_destroy(BIGlazer)
 </string>
           </argument>
         </arguments>
@@ -154,55 +103,7 @@ if instance_exists(BIGlazer)
           </argument>
           <argument>
             <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>3</string>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -224,60 +125,10 @@ if instance_exists(BIGlazer)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(lazerAim)
-    instance_destroy(lazerAim)
-    
-instance_create(x, y, BIGlazer)
-    
+            <string>instance_create(x, y, BIGlazer)
+bl = instance_nearest(x, y, BIGlazer)
+bl.image_angle = shootAngle
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
           </argument>
         </arguments>
       </action>
@@ -309,6 +160,32 @@ instance_create(x, y, BIGlazer)
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>10</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>2</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -323,11 +200,10 @@ instance_create(x, y, BIGlazer)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>isFiring = true
-hspeed = 0
+            <string>instance_create(x, y, lazerAim)
 vspeed = 0
-instance_create(x, y, lazerAim)
-
+hspeed = 0
+isFiring = true
 </string>
           </argument>
         </arguments>
@@ -348,59 +224,11 @@ instance_create(x, y, lazerAim)
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>10000</string>
+            <string>60</string>
           </argument>
           <argument>
             <kind>4</kind>
             <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>20</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>10000</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>3</string>
           </argument>
         </arguments>
       </action>
@@ -435,16 +263,21 @@ instance_create(x, y, lazerAim)
             
         //If the enemy is too close, backout
         if (sqr(x - player.x) + sqr(y - player.y) &lt; proxInner)
-            move_towards_point(player.x, player.y, -10)
+            move_towards_point(player.x, player.y, -6)
             
         //If the enemy is far away, move towards player
         if (sqr(x - player.x) + sqr(y - player.y) &gt; proxOutter)
-            move_towards_point(player.x, player.y, 30)
+            move_towards_point(player.x, player.y, 8)
             
         image_angle = point_direction(x, y, player.x, player.y) - 90
     }
 }
-    
+
+if (instance_exists(player) &amp;&amp; alarm[1] &gt; 0){
+    shootAngle = point_direction(x, y, player.x, player.y) - 90
+    image_angle = point_direction(x, y, player.x, player.y) - 90
+}
+
 if (BIGhealth &lt; 1){
     instance_destroy(self);
     global.enemyLoadedCount -= 1    

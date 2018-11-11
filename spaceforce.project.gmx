@@ -28,6 +28,8 @@
     <sprite>sprites\gameOverSprite</sprite>
     <sprite>sprites\levelWonSprite</sprite>
     <sprite>sprites\satSprite</sprite>
+    <sprite>sprites\healthSprite</sprite>
+    <sprite>sprites\ammoSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -67,6 +69,8 @@
     <object>objects\gameOverScreen</object>
     <object>objects\levelWon</object>
     <object>objects\satellite</object>
+    <object>objects\ammoPickup</object>
+    <object>objects\healthPickup</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\menuRoom</room>
