@@ -280,7 +280,8 @@ if (instance_exists(player) &amp;&amp; alarm[1] &gt; 0){
 
 if (BIGhealth &lt; 1){
     instance_destroy(self);
-    global.enemyLoadedCount -= 1    
+    global.enemyLoadedCount -= 1  
+    global.money += 500 + round(random(500))
 }
 </string>
           </argument>

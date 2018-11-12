@@ -34,31 +34,6 @@ image_angle = point_direction(x, y, newX, newY)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="rocket">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>other.rocketHealth -= global.bulletDamage
-instance_destroy(self);
-global.money += 50000000 + 5000000 * random_range(-1, 1)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="BIGenemy">
       <action>
         <libid>1</libid>
@@ -78,7 +53,30 @@ global.money += 50000000 + 5000000 * random_range(-1, 1)
             <kind>1</kind>
             <string>other.BIGhealth -= global.bulletDamage
 instance_destroy(self);
-global.money += 500000000 + 50000000 * random_range(-1, 1)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="rocket">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>other.rocketHealth -= global.bulletDamage
+instance_destroy(self);
 </string>
           </argument>
         </arguments>
@@ -103,7 +101,6 @@ global.money += 500000000 + 50000000 * random_range(-1, 1)
             <kind>1</kind>
             <string>other.healt -= global.bulletDamage
 instance_destroy(self);
-global.money += 100000000 + 10000000 * random_range(-1, 1)
 </string>
           </argument>
         </arguments>

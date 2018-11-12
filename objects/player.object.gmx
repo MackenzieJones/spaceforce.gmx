@@ -31,7 +31,6 @@ knockback = 2
 ammoReserve = 120
 mag = 30
 knocked = false
-global.money = 0
 alarm_set(0, 0)
 turn = 2
 oldV = 0
@@ -272,10 +271,14 @@ if (health &gt; 0 &amp;&amp; satellite.satelliteHealth &gt; 0){
           <argument>
             <kind>1</kind>
             <string>draw_sprite(ammoSprite, 0, 60, 500)
+
+draw_set_colour(c_white)
 draw_set_font(magFont)
 draw_text(100, 500, mag)
+
 draw_set_font(ammoFont)
 draw_text(200, 500, ammoReserve)
+
 </string>
           </argument>
         </arguments>

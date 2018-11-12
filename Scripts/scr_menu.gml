@@ -1,6 +1,6 @@
 switch (mpos){
     case 0:{
-        room_goto(finalRoom)
+        room_goto(firstRoom)
         break
     }case 1:{
         room_goto(tutorialRoom1)

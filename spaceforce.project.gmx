@@ -70,6 +70,7 @@
       <object>objects\eBullet</object>
       <object>objects\ammoPickup</object>
       <object>objects\healthPickup</object>
+      <object>objects\finalMissionDirector</object>
     </objects>
     <objects name="Menu items">
       <object>objects\spaceForce</object>
@@ -104,6 +105,7 @@
     <room>rooms\tutorialRoom1</room>
     <room>rooms\tutorialRoom2</room>
     <room>rooms\mainRoom</room>
+    <room>rooms\finalMission</room>
     <room>rooms\creditRoom</room>
   </rooms>
   <help>

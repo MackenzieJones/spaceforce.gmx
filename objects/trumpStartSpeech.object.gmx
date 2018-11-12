@@ -36,12 +36,11 @@ pos = 1
 dialogue[0] = "Thanks to millions of taxpaying Americans and the hard working folks at Space Force, we can finally train our troops for the war on space."
 dialogue[1] = "We're starting with just you."
 dialogue[2] = "The force has provided the budget to create ships manned by artificial intelligence as training dummies."
-dialogue[3] = "Training begins now protect the fake sattelites from being destroyed."
-dialogue[4] = "Once you've passed the training we can guarentee you'll be skilled enough"
-dialogue[5] = "to protect our real satellites."
-dialogue[6] = "Hopefully we'll dominate space space just as well as we do the air space."
-dialogue[7] = "We believe in your ability to adapt to this radical new climate."
-dialogue[8] = "For now YOU will be our Space Force."
+dialogue[3] = "Training begins now protect the fake sattelite from being destroyed."
+dialogue[4] = "Once you've passed the training we can guarantee you will be skilled enough to protect our real satellitess."
+dialogue[5] = "Our dominance in Air Space will be nothing compared to our dominance in Space Space."
+dialogue[6] = "We believe in your ability to adapt to this radical new climate."
+dialogue[7] = "You will be our Space Force."
 
 //Make a new 'Rest of string' variable
 //Every time there's a new line, set the 'rest-of-string' to the rest of the 

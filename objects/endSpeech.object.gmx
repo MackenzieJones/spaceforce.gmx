@@ -33,13 +33,13 @@ complete = false
 dIndex = 0
 pos = 1
 
-dialogue[0] = "Amazing."
-dialogue[1] = "OUTSTANDING."
+dialogue[0] = "Amazing"
+dialogue[1] = "OUTSTANDING"
 dialogue[2] = "We truly have dominance of space."
-dialogue[3] = "And it only cost " + string(global.money)
-dialogue[3] = "Our security and freedom is resting on your shoulders."
-dialogue[4] = "We know now you're up to the task."
-dialogue[5] = "Good luck out there."
+dialogue[3] = "And it only cost " + "$" + string(round(global.money)) + "0000000."
+dialogue[4] = "Our security and freedom is resting on your shoulders."
+dialogue[5] = "We know now you're up to the task."
+dialogue[6] = "Good luck out there"
 
 
 
@@ -147,6 +147,9 @@ if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dia
     global.bobble = false
     
 }
+
+if (dIndex == 3)
+    global.realized = true
     
 if (array_length_1d(dialogue) == dIndex){
     complete = true
@@ -178,9 +181,19 @@ if (array_length_1d(dialogue) == dIndex){
 draw_set_font(trumpFont)
 draw_sprite(spaceContinue, 0, x+200, y+240)
 draw_sprite(shipSprite, 0, x+120, y-250)
+draw_set_color(c_white)
 draw_text(x-50, y, line[0])
 draw_text(x-50, y+50, line[1])
 draw_text(x-50, y+100, line[2])
+draw_set_font(magFont)
+if (global.realized){
+    draw_set_colour(c_red)
+    draw_text(700, 50, "-$" + string(round(global.money)) + "0000000")
+}else{
+    draw_set_color(c_white)
+    draw_text(700, 50, string(round(global.money)))
+}
+draw_set_color(c_white)
 </string>
           </argument>
         </arguments>
@@ -215,16 +228,20 @@ draw_text(x-50, y+100, line[2])
     if (currLine &lt;=1)
         currLine += 1
     dIndex += 1
-    pos = 1
-    textToDraw = ""
-    
-    ros = dialogue[dIndex]
-    rosPos = 1
-    
-    if (currLine &gt; 1){
-        line[0] = line[1]
-        line[1] = line[2]
-        line[2] = ""
+    if (dIndex &gt;= array_length_1d(dialogue)){
+        room_goto(finalMission)
+    }else{
+        pos = 1
+        textToDraw = ""
+        
+        ros = dialogue[dIndex]
+        rosPos = 1
+        
+        if (currLine &gt; 1){
+            line[0] = line[1]
+            line[1] = line[2]
+            line[2] = ""
+        }
     }
 }
 </string>

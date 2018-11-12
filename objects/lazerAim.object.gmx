@@ -142,7 +142,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alarm[10] &gt; 0)
+            <string>if (alarm[10] &gt; 0 &amp;&amp; instance_exists(player))
     image_angle = point_direction(x, y, player.x, player.y) - 90
 
 </string>

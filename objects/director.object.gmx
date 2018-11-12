@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>randomize()
+global.realized = false
 global.newLevel = true
 global.level = 0
 global.doOnce = true
@@ -41,8 +42,6 @@ global.enemyLoadedCount = 0
 enemies[0] = 0
 enemies[1] = 0
 enemies[2] = 0
-
-global.money = 0
 </string>
           </argument>
         </arguments>
@@ -176,7 +175,12 @@ if (!global.playerDead &amp;&amp; global.finishedLevel &amp;&amp; global.doOnce)
 draw_set_font(gameFont)
 draw_text(4,700, "Level: " + string(global.level));
 draw_text(4,750, "Enemies Remaining: " + string(global.enemyStockCount + global.enemyLoadedCount));
+draw_set_font(magFont)
+draw_text(1000, 50, string(round(global.money)))
 
+draw_set_font(gameFont)
+draw_text(500, 800, "Mission: - Protect the satellite")
+draw_text(500, 850, "               - Destroy the AI training enemies")
 </string>
           </argument>
         </arguments>

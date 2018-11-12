@@ -25,17 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(10, 10, "Satellite Sprite - https://www.kisspng.com/png-military-satellite-satellite-imagery-reconnaissanc-1368940/download-png.html")
-draw_text(10, 40, "Menu System - Shaun Spalding of GameMaker Tutorials")
+            <string>draw_set_font(trumpFont)
+draw_text(10, 10, "Satellite Sprite - https://www.kisspng.com/png-military-satellite-satellite-imagery-reconnaissanc-1368940/download-png.html")
+draw_text(10, 60, "Menu System - Shaun Spalding of GameMaker Tutorials")
 
-draw_text(10, 100, "Trump's Face - Donald Trump")
+draw_text(10, 110, "Trump's Face - Donald Trump")
 
-draw_text(10, 130, "SoundTrack:")
-draw_text(10, 160, "    The Seatbelts - Too Good Too Bad")
-draw_text(10, 190, "    The Seatbelts - Bad Dog No Biscuits")
-draw_text(10, 220, "    The Seatbelts - Rush")
+draw_text(10, 160, "SoundTrack:")
+draw_text(10, 210, "    The Seatbelts - Too Good Too Bad")
+draw_text(10, 260, "    The Seatbelts - Bad Dog No Biscuits")
+draw_text(10, 310, "    The Seatbelts - Rush")
 
-draw_text(10, 250, "Everything else - Mackenzie Jones")
+draw_text(10, 360, "Everything else - Mackenzie Jones")
+
+draw_text(10, 500, "&lt;esc&gt; Menu")
 </string>
           </argument>
         </arguments>
