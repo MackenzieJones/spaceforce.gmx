@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize()
+            <string>audio_stop_all()
+randomize()
 global.realized = false
 global.newLevel = true
 global.level = 0
@@ -36,12 +37,17 @@ global.playerDead = false
 global.mainSpeed = 150
 global.bulletDamage = 10
 
+musicStarted = false
+
 maxInLevel = 4
 global.enemyStockCount = 0
 global.enemyLoadedCount = 0
 enemies[0] = 0
 enemies[1] = 0
 enemies[2] = 0
+
+
+
 </string>
           </argument>
         </arguments>
@@ -69,6 +75,10 @@ if (global.newLevel){
     satellite.satelliteHealth = 1200
     global.doOnce = true
     global.level += 1
+    if (musicStarted){
+        musicStarted = false
+        audio_stop_all()   
+    }
     global.newLevel = false
     if (global.level == 1){
         enemies[0] = 6
@@ -129,6 +139,16 @@ if(!global.playerDead &amp;&amp; global.enemyLoadedCount &lt; maxInLevel &amp;&a
 }
 
 global.finishedLevel = global.enemyLoadedCount + global.enemyStockCount &lt;= 0
+
+if (!musicStarted){
+    if (global.level == 1)
+        audio_play_sound(rushSong, 0, true)
+    else if (global.level == 2)
+        audio_play_sound(dogSong, 0, true)
+    else
+        audio_play_sound(goodSong, 0, true)
+    musicStarted = true
+}
 
 if (global.finishedLevel || global.playerDead){
     instance_destroy(bullet)

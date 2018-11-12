@@ -28,6 +28,9 @@
             <string>instance_create(96, 448, introDialogue)
 instance_create(256, 640, trump)
 instance_create(416, 512, trumpStartSpeech)
+audio_stop_all()
+audio_play_sound(catSong, 0, true)
+
 </string>
           </argument>
         </arguments>

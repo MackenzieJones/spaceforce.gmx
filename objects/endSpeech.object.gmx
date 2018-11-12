@@ -39,7 +39,7 @@ dialogue[2] = "We truly have dominance of space."
 dialogue[3] = "And it only cost " + "$" + string(round(global.money)) + "0000000."
 dialogue[4] = "Our security and freedom is resting on your shoulders."
 dialogue[5] = "We know now you're up to the task."
-dialogue[6] = "Good luck out there"
+dialogue[6] = "Good luck out there."
 
 
 
@@ -187,6 +187,7 @@ draw_text(x-50, y+50, line[1])
 draw_text(x-50, y+100, line[2])
 draw_set_font(magFont)
 if (global.realized){
+    audio_stop_all()
     draw_set_colour(c_red)
     draw_text(700, 50, "-$" + string(round(global.money)) + "0000000")
 }else{
@@ -216,32 +217,23 @@ draw_set_color(c_white)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (complete){
-    room_goto(mainRoom)
-
-}else if (pos-1 &lt; string_length(dialogue[dIndex])){
-    //If the line isn't done yet, then finish the line
-    line[currLine] += string_copy(dialogue[dIndex], pos, string_length(dialogue[dIndex]))
-    pos = string_length(dialogue[dIndex])
+            <string>//Go to next line in text box and dialogue
+if (currLine &lt;= 1)
+    currLine += 1
+dIndex += 1
+if (dIndex == array_length_1d(dialogue)){
+    room_goto(finalMission)
 }else{
-    //Go to next line in text box and dialogue
-    if (currLine &lt;=1)
-        currLine += 1
-    dIndex += 1
-    if (dIndex &gt;= array_length_1d(dialogue)){
-        room_goto(finalMission)
-    }else{
-        pos = 1
-        textToDraw = ""
-        
-        ros = dialogue[dIndex]
-        rosPos = 1
-        
-        if (currLine &gt; 1){
-            line[0] = line[1]
-            line[1] = line[2]
-            line[2] = ""
-        }
+    pos = 1
+    textToDraw = ""
+    
+    ros = dialogue[dIndex]
+    rosPos = 1
+    
+    if (currLine &gt; 1){
+        line[0] = line[1]
+        line[1] = line[2]
+        line[2] = ""
     }
 }
 </string>

@@ -8,6 +8,13 @@
     <sound>sound\lazerSound1</sound>
     <sound>sound\lazerSound2</sound>
     <sound>sound\bullet4</sound>
+    <sound>sound\rushSong</sound>
+    <sound>sound\dogSong</sound>
+    <sound>sound\goodSong</sound>
+    <sound>sound\cosmoSong</sound>
+    <sound>sound\memorySong</sound>
+    <sound>sound\carSong</sound>
+    <sound>sound\catSong</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\shipSprite</sprite>
@@ -32,6 +39,7 @@
     <sprite>sprites\ammoSprite</sprite>
     <sprite>sprites\shootingSprite</sprite>
     <sprite>sprites\wasd</sprite>
+    <sprite>sprites\explosionSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -71,6 +79,7 @@
       <object>objects\ammoPickup</object>
       <object>objects\healthPickup</object>
       <object>objects\finalMissionDirector</object>
+      <object>objects\explosion</object>
     </objects>
     <objects name="Menu items">
       <object>objects\spaceForce</object>

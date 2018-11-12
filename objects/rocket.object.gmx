@@ -83,6 +83,7 @@ alarm[0] = 3*room_speed
 }
 
 if(rocketHealth &lt; 1){
+    instance_create(x, y, explosion)
     global.money += 60 + round(random(60))
     if (random(5) &gt; 3)
         instance_create(x+40, y, healthPickup)
@@ -141,6 +142,7 @@ rocketHealth -= 10
 instance_destroy(self);
 global.enemyLoadedCount -= 1
 global.money += 60 + round(random(10))
+instance_create(x, y, explosion)
 
 </string>
           </argument>

@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_stop_all()
+audio_play_sound(memorySong, 0, true)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -26,19 +50,20 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_font(trumpFont)
-draw_text(10, 10, "Satellite Sprite - https://www.kisspng.com/png-military-satellite-satellite-imagery-reconnaissanc-1368940/download-png.html")
-draw_text(10, 60, "Menu System - Shaun Spalding of GameMaker Tutorials")
+draw_text(10, 20, "Sprites: https://www.kisspng.com/png-")
+draw_text(10, 60, "military-satellite-satellite-imagery-reconnaissanc-")
+draw_text(10, 100, "1368940/download-png.html")
+draw_text(10, 150, "https://ubisafe.org/images/explosion-transparent-2.png")
 
-draw_text(10, 110, "Trump's Face - Donald Trump")
+draw_text(10, 250, "Menu System - Shaun Spalding of GameMaker Tutorials")
 
-draw_text(10, 160, "SoundTrack:")
-draw_text(10, 210, "    The Seatbelts - Too Good Too Bad")
-draw_text(10, 260, "    The Seatbelts - Bad Dog No Biscuits")
-draw_text(10, 310, "    The Seatbelts - Rush")
+draw_text(10, 300, "Trump's Face - Donald Trump")
 
-draw_text(10, 360, "Everything else - Mackenzie Jones")
+draw_text(10, 350, "SoundTrack provided entirely by The Seatbelts")
 
-draw_text(10, 500, "&lt;esc&gt; Menu")
+draw_text(10, 400, "Everything else - Mackenzie Jones")
+
+draw_text(10, 600, "&lt;esc&gt; Menu")
 </string>
           </argument>
         </arguments>
