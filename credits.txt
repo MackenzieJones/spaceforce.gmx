@@ -1,3 +1,10 @@
 Satellite Sprite - https://www.kisspng.com/png-military-satellite-satellite-imagery-reconnaissanc-1368940/download-png.html
 Menu System - Shaun Spalding of GameMaker Tutorials
 Trump's Face - Donald Trump
+
+SoundTrack:
+The Seatbelts - Too Good Too Bad
+The Seatbelts - Bad Dog No Biscuits
+The Seatbelts - Rush
+
+Everything Else - Mackenzie Jones

@@ -1,11 +1,13 @@
 switch (mpos){
     case 0:{
-        room_goto(mainRoom)
+        room_goto(finalRoom)
         break
     }case 1:{
-        //Not implemented
+        room_goto(tutorialRoom1)
+        break;
     }case 2:{
-        //Not implemented
+        room_goto(creditRoom)
+        break;
     }case 3:{
         game_end();
         break;

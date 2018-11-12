@@ -1,4 +1,4 @@
-str = argument0 //The stringthe word is in
+str = argument0 //The string the word is in
 pos = argument1 //position of the first letter
 boxLength = argument2 //Length you don't want to exceed
 wordLength = 0

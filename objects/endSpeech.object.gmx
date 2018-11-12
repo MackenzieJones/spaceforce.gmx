@@ -33,15 +33,15 @@ complete = false
 dIndex = 0
 pos = 1
 
-dialogue[0] = "Thanks to millions of taxpaying Americans and the hard working folks at Space Force, we can finally train our troops for the war on space."
-dialogue[1] = "We're starting with just you."
-dialogue[2] = "The force has provided the budget to create ships manned by artificial intelligence as training dummies."
-dialogue[3] = "Training begins now protect the fake sattelites from being destroyed."
-dialogue[4] = "Once you've passed the training we can guarentee you'll be skilled enough"
-dialogue[5] = "to protect our real satellites."
-dialogue[6] = "Hopefully we'll dominate space space just as well as we do the air space."
-dialogue[7] = "We believe in your ability to adapt to this radical new climate."
-dialogue[8] = "For now YOU will be our Space Force."
+dialogue[0] = "Amazing."
+dialogue[1] = "OUTSTANDING."
+dialogue[2] = "We truly have dominance of space."
+dialogue[3] = "And it only cost " + string(global.money)
+dialogue[3] = "Our security and freedom is resting on your shoulders."
+dialogue[4] = "We know now you're up to the task."
+dialogue[5] = "Good luck out there."
+
+
 
 //Make a new 'Rest of string' variable
 //Every time there's a new line, set the 'rest-of-string' to the rest of the 
@@ -131,6 +131,7 @@ if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dia
                 line[1] = line[2]
                 line[2] = ""
             }
+            rosPos += 1
         }
     }
         
@@ -175,11 +176,11 @@ if (array_length_1d(dialogue) == dIndex){
             <kind>1</kind>
             <string>draw_set_colour(c_white)
 draw_set_font(trumpFont)
+draw_sprite(spaceContinue, 0, x+200, y+240)
+draw_sprite(shipSprite, 0, x+120, y-250)
 draw_text(x-50, y, line[0])
 draw_text(x-50, y+50, line[1])
 draw_text(x-50, y+100, line[2])
-draw_sprite(spaceContinue, 0, x+200, y+240)
-draw_sprite(shipSprite, 0, x+120, y-250)
 </string>
           </argument>
         </arguments>
@@ -202,13 +203,18 @@ draw_sprite(shipSprite, 0, x+120, y-250)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Go to next line in text box and dialogue
-if (currLine &lt;= 1)
-    currLine += 1
-dIndex += 1
-if (dIndex == array_length_1d(dialogue)){
+            <string>if (complete){
     room_goto(mainRoom)
+
+}else if (pos-1 &lt; string_length(dialogue[dIndex])){
+    //If the line isn't done yet, then finish the line
+    line[currLine] += string_copy(dialogue[dIndex], pos, string_length(dialogue[dIndex]))
+    pos = string_length(dialogue[dIndex])
 }else{
+    //Go to next line in text box and dialogue
+    if (currLine &lt;=1)
+        currLine += 1
+    dIndex += 1
     pos = 1
     textToDraw = ""
     

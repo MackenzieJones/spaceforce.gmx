@@ -25,13 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(player.x, player.y, 3)
+            <string>move_towards_point(dummyPlayer2.x, dummyPlayer2.y, 3)
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="player">
+    <event eventtype="4" ename="dummyPlayer2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player.ammoReserve += 60
+            <string>dummyPlayer2.ammoReserve += 40
 instance_destroy(self)
 </string>
           </argument>

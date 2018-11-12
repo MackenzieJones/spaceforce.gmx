@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>//Complete menu code provided by Shaun Spalding of GameMaker Tutorials
+global.money = 0
 menuArr[0] = "Start Game"
-menuArr[1] = "Controls"
+menuArr[1] = "Tutorial"
 menuArr[2] = "Credits"
 menuArr[3] = "Quit"
 
@@ -72,6 +73,7 @@ push = max(keyboard_check_pressed(vk_enter), keyboard_check_pressed(vk_space), 0
 if (push == 1)
     scr_menu();
     
+    
 
 </string>
           </argument>
@@ -99,7 +101,7 @@ if (push == 1)
 draw_set_valign(fa_middle)
 draw_set_colour(c_white)
 draw_set_font(menuFont)
-draw_sprite_stretched(bullet, 0, x - 50, y + 800 + mpos * space, 400, 400);
+draw_sprite_stretched(bulletSprite, 0, x - 50, y + 800 + mpos * space, 400, 400);
 var m
 for (m = 0; m &lt; array_length_1d(menuArr); m+= 1){
     draw_text(x + space, 1000 + y + (m * space), string(menuArr[m]))

@@ -30,6 +30,8 @@
     <sprite>sprites\satSprite</sprite>
     <sprite>sprites\healthSprite</sprite>
     <sprite>sprites\ammoSprite</sprite>
+    <sprite>sprites\shootingSprite</sprite>
+    <sprite>sprites\wasd</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -50,32 +52,59 @@
     <font>fonts\magFont</font>
   </fonts>
   <objects name="objects">
-    <object>objects\player</object>
-    <object>objects\bullet</object>
-    <object>objects\eBullet</object>
-    <object>objects\enemy</object>
-    <object>objects\BIGenemy</object>
-    <object>objects\director</object>
-    <object>objects\rocket</object>
-    <object>objects\lazerAim</object>
-    <object>objects\BIGlazer</object>
-    <object>objects\menu</object>
-    <object>objects\spaceForce</object>
-    <object>objects\menuNav</object>
-    <object>objects\trumpStartSpeech</object>
-    <object>objects\introDialogue</object>
-    <object>objects\trump</object>
-    <object>objects\firstRoomDirector</object>
-    <object>objects\gameOverScreen</object>
-    <object>objects\levelWon</object>
-    <object>objects\satellite</object>
-    <object>objects\ammoPickup</object>
-    <object>objects\healthPickup</object>
+    <object>objects\credits</object>
+    <objects name="Game UI">
+      <object>objects\gameOverScreen</object>
+      <object>objects\levelWon</object>
+    </objects>
+    <objects name="Game Objects">
+      <object>objects\director</object>
+      <object>objects\player</object>
+      <object>objects\satellite</object>
+      <object>objects\enemy</object>
+      <object>objects\rocket</object>
+      <object>objects\BIGenemy</object>
+      <object>objects\lazerAim</object>
+      <object>objects\BIGlazer</object>
+      <object>objects\bullet</object>
+      <object>objects\eBullet</object>
+      <object>objects\ammoPickup</object>
+      <object>objects\healthPickup</object>
+    </objects>
+    <objects name="Menu items">
+      <object>objects\spaceForce</object>
+      <object>objects\menu</object>
+      <object>objects\menuNav</object>
+    </objects>
+    <objects name="Speaking">
+      <object>objects\introDialogue</object>
+      <object>objects\trump</object>
+      <object>objects\trumpStartSpeech</object>
+      <object>objects\firstRoomDirector</object>
+    </objects>
+    <objects name="Speaking2">
+      <object>objects\endSpeech</object>
+      <object>objects\finalRoomDirector</object>
+    </objects>
+    <objects name="tutorial">
+      <object>objects\tutorial1</object>
+      <object>objects\tutorial2</object>
+      <object>objects\dummy</object>
+      <object>objects\dummyPlayer1</object>
+      <object>objects\dummyPlayer2</object>
+      <object>objects\dummyRocket</object>
+      <object>objects\dummyAmmo</object>
+      <object>objects\dummyHealth</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\menuRoom</room>
+    <room>rooms\finalRoom</room>
     <room>rooms\firstRoom</room>
+    <room>rooms\tutorialRoom1</room>
+    <room>rooms\tutorialRoom2</room>
     <room>rooms\mainRoom</room>
+    <room>rooms\creditRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
