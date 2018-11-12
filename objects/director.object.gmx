@@ -11,6 +11,30 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>40</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -53,6 +77,32 @@ enemies[2] = 0
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>40</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -72,7 +122,6 @@ enemies[2] = 0
             <kind>1</kind>
             <string>//Load next level
 if (global.newLevel){
-    satellite.satelliteHealth = 1200
     global.doOnce = true
     global.level += 1
     if (musicStarted){
@@ -81,20 +130,23 @@ if (global.newLevel){
     }
     global.newLevel = false
     if (global.level == 1){
-        enemies[0] = 6
-        enemies[1] = 0
-        enemies[2] = 0
-        global.enemyStockCount = 6
-    }else if (global.level == 2){
+        satellite.satelliteHealth = 800
         enemies[0] = 6
         enemies[1] = 3
         enemies[2] = 0
         global.enemyStockCount = 9
-    }else if (global.level == 3){
+    }else if (global.level == 2){
+        satellite.satelliteHealth = 1400
         enemies[0] = 6
         enemies[1] = 6
         enemies[2] = 3
         global.enemyStockCount = 15
+    }else if (global.level == 3){
+        satellite.satelliteHealth = 1800
+        enemies[0] = 8
+        enemies[1] = 8
+        enemies[2] = 4
+        global.enemyStockCount = 20
     }else{
         room_goto(finalRoom)
     }
@@ -192,15 +244,21 @@ if (!global.playerDead &amp;&amp; global.finishedLevel &amp;&amp; global.doOnce)
           <argument>
             <kind>1</kind>
             <string>//Display score and enemies
+draw_set_colour(c_white)
 draw_set_font(gameFont)
-draw_text(4,700, "Level: " + string(global.level));
-draw_text(4,750, "Enemies Remaining: " + string(global.enemyStockCount + global.enemyLoadedCount));
-draw_set_font(magFont)
-draw_text(1000, 50, string(round(global.money)))
+draw_text(30,50, "Level: " + string(global.level));
+draw_text(30,675, "Enemies: " + string(global.enemyStockCount + global.enemyLoadedCount));
 
-draw_set_font(gameFont)
-draw_text(500, 800, "Mission: - Protect the satellite")
-draw_text(500, 850, "               - Destroy the AI training enemies")
+draw_set_font(magFont)
+
+if (!global.playerDead &amp;&amp; global.finishedLevel){
+    if (alarm[0] &lt; 20)
+        draw_set_color(c_green)
+    else
+        draw_set_color(c_white)
+}
+
+draw_text(700, 770, string(round(global.money)))
 </string>
           </argument>
         </arguments>

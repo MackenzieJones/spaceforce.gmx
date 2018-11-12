@@ -279,6 +279,12 @@ draw_text(100, 500, mag)
 draw_set_font(ammoFont)
 draw_text(200, 500, ammoReserve)
 
+draw_set_colour(c_black)
+draw_set_font(gameFont)
+draw_text(58, 818, "Ship Health")
+draw_set_colour(c_white)
+draw_set_font(gameFont)
+draw_text(60, 820, "Ship Health")
 </string>
           </argument>
         </arguments>

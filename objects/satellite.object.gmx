@@ -144,8 +144,8 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_white)
-draw_set_font(trumpFont)
-draw_text(50, 50, "Satellite Health: " + string(satelliteHealth))
+draw_set_font(gameFont)
+draw_text(30, 750, "Satellite Health: " + string(satelliteHealth))
 </string>
           </argument>
         </arguments>

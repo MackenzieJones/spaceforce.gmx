@@ -51,7 +51,7 @@ audio_play_sound(cosmoSong, 0, true)
             <kind>1</kind>
             <string>draw_set_font(magFont)
 draw_set_colour(c_red)
-draw_text(700, 50, "-$" + string(round(global.money)) + "0000000")
+draw_text(700, 770, "-$" + string(round(global.money)) + "Million")
 </string>
           </argument>
         </arguments>

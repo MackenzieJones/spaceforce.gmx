@@ -189,7 +189,7 @@ draw_set_font(magFont)
 if (global.realized){
     audio_stop_all()
     draw_set_colour(c_red)
-    draw_text(700, 50, "-$" + string(round(global.money)) + "0000000")
+    draw_text(700, 50, "-$" + string(round(global.money)) + "Million")
 }else{
     draw_set_color(c_white)
     draw_text(700, 50, string(round(global.money)))
