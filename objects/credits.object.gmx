@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all()
-audio_play_sound(memorySong, 0, true)
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -50,25 +48,31 @@ audio_play_sound(memorySong, 0, true)
           <argument>
             <kind>1</kind>
             <string>draw_set_font(trumpFont)
-draw_text(10, 20, "Sprites: https://www.kisspng.com/png-")
-draw_text(10, 60, "military-satellite-satellite-imagery-reconnaissanc-")
-draw_text(10, 100, "1368940/download-png.html")
+draw_set_colour(c_green)
+draw_text(10, 75, "Sprites: https://www.kisspng.com/png-
+military-satellite-satellite-imagery-reconnaissanc-
+1368940/download-png.html")
+draw_set_colour(c_white)
 draw_text(10, 150, "https://ubisafe.org/images/explosion-transparent-2.png")
-
+draw_set_colour(c_green)
 draw_text(10, 250, "Menu System - Shaun Spalding of GameMaker Tutorials")
-
-draw_text(10, 300, "Trump's Face - Donald Trump")
-
-draw_text(10, 350, "SoundTrack provided entirely by The Seatbelts")
-
-draw_text(10, 400, "Sounds (c) by Michel Baradari apollo-music.de
+draw_set_colour(c_white)
+draw_text(10, 300, "Trump's Face and voice - Donald Trump")
+draw_set_colour(c_green)
+draw_text(10, 350, "Music soundtrack provided entirely by The Seatbelts")
+draw_set_colour(c_white)
+draw_text(10, 425, "Sounds (c) by Michel Baradari apollo-music.de
 Licensed under CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
 Hosted on opengameart.org")
+draw_set_colour(c_green)
+draw_text(10, 525, "Reload sound by https://freesound.org/people/
+niamhd00145229/sounds/422688/")
 
+draw_set_colour(c_white)
+draw_text(10, 600, "Everything else - Mackenzie Jones")
 
-draw_text(10, 400, "Everything else - Mackenzie Jones")
+draw_text(10, 700, "&lt;esc&gt; Menu")
 
-draw_text(10, 600, "&lt;esc&gt; Menu")
 </string>
           </argument>
         </arguments>

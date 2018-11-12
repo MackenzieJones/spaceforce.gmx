@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>//Complete menu code provided by Shaun Spalding of GameMaker Tutorials
 global.money = 0
+if (!audio_is_playing(memorySong))
+    audio_play_sound(memorySong, 0, true)
 menuArr[0] = "Start Game"
 menuArr[1] = "Tutorial"
 menuArr[2] = "Credits"

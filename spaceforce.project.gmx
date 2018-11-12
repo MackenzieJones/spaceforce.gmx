@@ -15,6 +15,14 @@
     <sound>sound\memorySong</sound>
     <sound>sound\carSong</sound>
     <sound>sound\catSong</sound>
+    <sound>sound\exploSound</sound>
+    <sound>sound\reloadSound</sound>
+    <sound>sound\chargeUpSound</sound>
+    <sound>sound\BIGlazerSound</sound>
+    <sound>sound\trumpSound1</sound>
+    <sound>sound\trumpSound2</sound>
+    <sound>sound\trumpSound3</sound>
+    <sound>sound\trumpSound4</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\shipSprite</sprite>
@@ -109,11 +117,11 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\menuRoom</room>
-    <room>rooms\finalRoom</room>
     <room>rooms\firstRoom</room>
     <room>rooms\tutorialRoom1</room>
     <room>rooms\tutorialRoom2</room>
     <room>rooms\mainRoom</room>
+    <room>rooms\finalRoom</room>
     <room>rooms\finalMission</room>
     <room>rooms\creditRoom</room>
   </rooms>

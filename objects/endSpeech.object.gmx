@@ -36,7 +36,7 @@ pos = 1
 dialogue[0] = "Amazing"
 dialogue[1] = "OUTSTANDING"
 dialogue[2] = "We truly have dominance of space."
-dialogue[3] = "And it only cost " + "$" + string(round(global.money)) + "0000000."
+dialogue[3] = "And it only cost " + string(round(global.money)) + " Billion."
 dialogue[4] = "Our security and freedom is resting on your shoulders."
 dialogue[5] = "We know now you're up to the task."
 dialogue[6] = "Good luck out there."
@@ -136,7 +136,18 @@ if (dIndex &lt; array_length_1d(dialogue) &amp;&amp; pos &lt;= string_length(dia
     }
         
     line[currLine] = line[currLine] + string_char_at(ros, rosPos)
-      
+    if (rosPos%3 == 1){
+        rand = random_range(0, 4)
+        if (rand &lt; 1)
+            audio_sound_gain(audio_play_sound(trumpSound1, 1, false), 0.3, 0)
+        else if (rand &lt; 2)
+            audio_sound_gain(audio_play_sound(trumpSound2, 1, false), 0.3, 0)
+        else if (rand &lt; 3)
+            audio_sound_gain(audio_play_sound(trumpSound3, 1, false), 0.3, 0)
+        else if (rand &lt; 4)
+            audio_sound_gain(audio_play_sound(trumpSound4, 1, false), 0.3, 0)
+    }
+    
     rosPos += 1
     pos += 1
     global.bobble = true
@@ -187,7 +198,7 @@ draw_text(x-50, y+50, line[1])
 draw_text(x-50, y+100, line[2])
 draw_set_font(magFont)
 if (global.realized){
-    audio_stop_all()
+    audio_stop_sound(carSong)
     draw_set_colour(c_red)
     draw_text(700, 50, "-$" + string(round(global.money)) + "Million")
 }else{

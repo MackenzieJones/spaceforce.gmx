@@ -72,6 +72,8 @@ if (instance_exists(satellite) &amp;&amp; canShoot % 3 == 0){
     }
 }
 if (healt &lt; 1){
+    explode = audio_play_sound(exploSound, 1, false)
+    audio_sound_pitch(explode, random_range(0.9, 1.1))
     instance_create(x, y, explosion)
     instance_create(x-5, y, ammoPickup)
     if (random(5) &gt; 4)

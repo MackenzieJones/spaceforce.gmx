@@ -52,7 +52,8 @@ instance_destroy(self)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(menuRoom)
+            <string>audio_stop_all()
+room_goto(menuRoom)
 </string>
           </argument>
         </arguments>

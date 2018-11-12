@@ -151,6 +151,7 @@ if (knocked){
     knocked = false
 }
 if (!reloading &amp;&amp; mag &lt;= 0){
+    audio_play_sound(reloadSound, 1, false)
     reloading = true
     alarm[1] = 30
 }
@@ -307,9 +308,11 @@ draw_text(60, 820, "Ship Health")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>reloading = true
-alarm[1] = 30
-//play reloading sound
+            <string>if (!reloading){
+    audio_play_sound(reloadSound, 1, false)
+    reloading = true
+    alarm[1] = 30
+}
 </string>
           </argument>
         </arguments>

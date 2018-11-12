@@ -84,13 +84,15 @@ alarm[0] = 3*room_speed
 
 if(rocketHealth &lt; 1){
     instance_create(x, y, explosion)
+    explode = audio_play_sound(exploSound, 1, false)
+    audio_sound_pitch(explode, random_range(1, 1.2))
     global.money += 60 + round(random(60))
     if (random(5) &gt; 3)
         instance_create(x+40, y, healthPickup)
     if (random(5) &gt; 4)
         instance_create(x+40, y, ammoPickup)
     global.enemyLoadedCount -= 1
-    instance_destroy(self);     
+    instance_destroy(self);
 }
 </string>
           </argument>
@@ -143,6 +145,8 @@ instance_destroy(self);
 global.enemyLoadedCount -= 1
 global.money += 60 + round(random(10))
 instance_create(x, y, explosion)
+explode = audio_play_sound(exploSound, 1, false)
+audio_sound_pitch(explode, random_range(1, 1.2))
 
 </string>
           </argument>
