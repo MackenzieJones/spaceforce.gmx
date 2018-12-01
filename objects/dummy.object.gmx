@@ -74,9 +74,11 @@
             <string>dumHealth -= 10
 instance_destroy(other)
 if (dumHealth &lt; 10){
-    global.passed = true
     x = -1000
     y = -1000
+}
+if (!global.passed){
+    global.passed = true
     alarm[0] = 120
 }
 </string>

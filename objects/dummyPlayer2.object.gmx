@@ -174,6 +174,16 @@ if (reloading){
 view_xview = x - view_wview/2
 view_yview = y - view_hview/2
 
+
+if (x &gt; room_width)
+    x = room_width
+else if (x &lt; 0)
+    x = 0
+    
+if (y &gt; room_height)
+    y = room_height
+else if (y &lt; 0)
+    y = 0
 </string>
           </argument>
         </arguments>
@@ -279,7 +289,7 @@ alarm[1] = 30
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(menuRoom)
+            <string>room_goto(mainRoom)
 </string>
           </argument>
         </arguments>

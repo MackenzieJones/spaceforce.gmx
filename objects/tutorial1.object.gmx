@@ -28,6 +28,7 @@
             <string>global.passed = false
 global.mainSpeed = 150
 global.bulletDamage = 10
+cursor_sprite = aimSprite;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,7 @@ global.bulletDamage = 10
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(shootingSprite, 0, 850, 300)
+            <string>draw_sprite(shootingSprite, 0, 1000, 300)
 draw_set_font(trumpFont)
 draw_text(10, 50, "Try shooting with point and click")
 draw_text(10, 125, "Your ammo is on the right side")

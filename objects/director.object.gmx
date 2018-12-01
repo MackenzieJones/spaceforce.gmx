@@ -70,10 +70,7 @@ enemies[0] = 0
 enemies[1] = 0
 enemies[2] = 0
 
-cursor_sprite = aimSprite;
-
-
-
+cursor_sprite = aimSprite
 </string>
           </argument>
         </arguments>

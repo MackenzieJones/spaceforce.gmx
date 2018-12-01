@@ -147,7 +147,6 @@ global.money += 60 + round(random(10))
 instance_create(x, y, explosion)
 explode = audio_play_sound(exploSound, 1, false)
 audio_sound_pitch(explode, random_range(1, 1.2))
-
 </string>
           </argument>
         </arguments>

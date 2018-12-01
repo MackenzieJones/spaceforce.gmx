@@ -118,10 +118,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\menuRoom</room>
+    <room>rooms\mainRoom</room>
     <room>rooms\firstRoom</room>
     <room>rooms\tutorialRoom1</room>
     <room>rooms\tutorialRoom2</room>
-    <room>rooms\mainRoom</room>
     <room>rooms\finalRoom</room>
     <room>rooms\finalMission</room>
     <room>rooms\creditRoom</room>

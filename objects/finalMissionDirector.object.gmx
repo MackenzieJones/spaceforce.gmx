@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>audio_stop_all()
 audio_play_sound(cosmoSong, 0, true)
+
+window_set_cursor(cr_default)
 </string>
           </argument>
         </arguments>

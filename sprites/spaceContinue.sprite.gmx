@@ -7,18 +7,18 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>14</bbox_left>
-  <bbox_right>375</bbox_right>
-  <bbox_top>6</bbox_top>
-  <bbox_bottom>47</bbox_bottom>
+  <bbox_left>9</bbox_left>
+  <bbox_right>263</bbox_right>
+  <bbox_top>4</bbox_top>
+  <bbox_bottom>33</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>400</width>
-  <height>50</height>
+  <width>280</width>
+  <height>35</height>
   <frames>
     <frame index="0">images\spaceContinue_0.png</frame>
   </frames>

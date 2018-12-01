@@ -83,6 +83,9 @@ alarm[0] = 3*room_speed
 }
 
 if(rocketHealth &lt; 1){
+    instance_create(x, y, explosion)
+    explode = audio_play_sound(exploSound, 1, false)
+    audio_sound_pitch(explode, random_range(1, 1.2))
     if (random(5) &gt; 1)
         instance_create(x+40, y, dummyHealth)
     if (random(5) &gt; 1)
@@ -114,7 +117,9 @@ if(rocketHealth &lt; 1){
             <kind>1</kind>
             <string>health -= 40
 instance_destroy(self);  
-
+instance_create(x, y, explosion)
+explode = audio_play_sound(exploSound, 1, false)
+audio_sound_pitch(explode, random_range(1, 1.2))
 </string>
           </argument>
         </arguments>

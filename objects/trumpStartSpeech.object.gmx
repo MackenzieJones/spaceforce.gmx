@@ -45,11 +45,6 @@ dialogue[5] = "Our dominance in Air Space will be nothing compared to our domina
 dialogue[6] = "We believe in your ability to adapt to this radical new climate."
 dialogue[7] = "You will be our Space Force."
 
-//Make a new 'Rest of string' variable
-//Every time there's a new line, set the 'rest-of-string' to the rest of the 
-//current line of dialogue, the rest of the dialogue is pos to length(dialogue[dIndex])
-//A new pos variable is needed for this 'rest-of-string', that begins at 1 whenever
-// 'rest-of-string' changes
 ros = dialogue[dIndex]
 rosPos = pos
 </string>
