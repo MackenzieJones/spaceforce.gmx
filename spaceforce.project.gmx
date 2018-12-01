@@ -48,6 +48,7 @@
     <sprite>sprites\shootingSprite</sprite>
     <sprite>sprites\wasd</sprite>
     <sprite>sprites\explosionSprite</sprite>
+    <sprite>sprites\aimSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
