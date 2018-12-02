@@ -30,9 +30,8 @@ global.money = 0
 if (!audio_is_playing(memorySong))
     audio_play_sound(memorySong, 0, true)
 menuArr[0] = "Start Game"
-menuArr[1] = "Tutorial"
-menuArr[2] = "Credits"
-menuArr[3] = "Quit"
+menuArr[1] = "Credits"
+menuArr[2] = "Quit"
 
 space = 400;
 mpos = 0;

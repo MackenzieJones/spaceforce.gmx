@@ -145,7 +145,7 @@
             <kind>1</kind>
             <string>draw_set_colour(c_white)
 draw_set_font(gameFont)
-draw_text(30, 750, "Satellite Health: " + string(satelliteHealth))
+draw_text(30, view_hview - 150, "Satellite Health: " + string(satelliteHealth))
 </string>
           </argument>
         </arguments>

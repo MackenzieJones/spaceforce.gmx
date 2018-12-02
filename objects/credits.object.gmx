@@ -25,7 +25,69 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>scroll = 0
+i = 0
+
+credit[0, 0] = "Code"
+credit[0, 1] = "."
+credit[1, 0] = "Menu System"
+credit[1, 1] = "Shaun Spalding of GameMaker Tutorials"
+
+credit[2, 0] = "Sounds"
+credit[2, 1] = "."
+credit[3, 0] = "Trump's voice"
+credit[3, 1] = "Donald Trump"
+credit[4, 0] = "Reload sound"
+credit[4, 1] = "https://freesound.org/people/niamhd00145229"
+credit[5, 0] = "Bell, Candle Damper, A (H1).wav"
+credit[5, 1] = "InspectorJ (www.jshaw.co.uk) of Freesound.org"
+credit[6, 0] = "Charge sound"
+credit[6, 1] = "https://freesound.org/people/Glitchedtones"
+credit[7, 0] = "Big Laser Effect"
+credit[7, 1] = "Michel Baradari apollo-music.de"
+credit[8, 0] = "Explosion Sound Effect"
+credit[8, 1] = "Michel Baradari apollo-music.de"
+
+credit[9, 0] = "Music"
+credit[9, 1] = "."
+credit[10, 0] = "The Seatbelts"
+credit[10, 1] = "Rush"
+credit[11, 0] = "The Seatbelts"
+credit[11, 1] = "Bad Dog No Biscuits"
+credit[12, 0] = "The Seatbelts"
+credit[12, 1] = "Cat Blues"
+credit[13, 0] = "The Seatbelts"
+credit[13, 1] = "Cosmos"
+credit[14, 0] = "The Seatbelts"
+credit[14, 1] = "Too Good Too Bad"
+credit[15, 0] = "The Seatbelts"
+credit[15, 1] = "Car 24"
+credit[16, 0] = "The Seatbelts"
+credit[16, 1] = "Memory"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scroll += 2
+</string>
           </argument>
         </arguments>
       </action>
@@ -47,32 +109,46 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(trumpFont)
-draw_set_colour(c_green)
-draw_text(10, 75, "Sprites: https://www.kisspng.com/png-
-military-satellite-satellite-imagery-reconnaissanc-
-1368940/download-png.html")
+            <string>draw_set_font(creditFont)
 draw_set_colour(c_white)
-draw_text(10, 150, "https://ubisafe.org/images/explosion-transparent-2.png")
-draw_set_colour(c_green)
-draw_text(10, 250, "Menu System - Shaun Spalding of GameMaker Tutorials")
-draw_set_colour(c_white)
-draw_text(10, 300, "Trump's Face and voice - Donald Trump")
-draw_set_colour(c_green)
-draw_text(10, 350, "Music soundtrack provided entirely by The Seatbelts")
-draw_set_colour(c_white)
-draw_text(10, 425, "Sounds (c) by Michel Baradari apollo-music.de
-Licensed under CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
-Hosted on opengameart.org")
-draw_set_colour(c_green)
-draw_text(10, 525, "Reload sound by https://freesound.org/people/
-niamhd00145229/sounds/422688/")
 
-draw_set_colour(c_white)
-draw_text(10, 600, "Everything else - Mackenzie Jones")
+xCenter = view_wview * 0.5 + 50
+yCenter = view_hview * 0.5 
+yBottom = view_hview
+offset = 0
 
-draw_text(10, 700, "&lt;esc&gt; Menu")
+draw_set_halign(fa_center);
+draw_text(xCenter, yBottom - 200 - scroll + offset, "News article");
+draw_text(xCenter, yBottom - 150 - scroll + offset, "theguardian.com/us-news/2018/aug/10/space-force-everything-you-need-to-know");
 
+for (i = 0; i &lt; array_height_2d(credit); i += 1){
+    if (credit[i, 1] == "."){
+        if (i &gt; 0)
+            offset += 100
+        draw_set_halign(fa_center);
+        draw_text(xCenter, yBottom - scroll + i*50 + offset, credit[i, 0]);
+        
+    }else{
+        draw_set_halign(fa_right);
+        draw_text(xCenter - 15, yBottom - scroll + i*50 + offset, credit[i, 0]);
+        draw_set_halign(fa_left);
+        draw_text(xCenter + 15, yBottom - scroll + i*50 + offset, credit[i, 1]);
+    }
+}
+offset += 100
+if (yBottom - scroll + i*50 + offset &gt; yCenter){
+    yPos[0] = yBottom - scroll + (i+1)*50 + offset
+    yPos[1] = yBottom - scroll + (i+2)*50 + offset
+    yPos[2] = yBottom - scroll + (i+10)*50 + offset
+}
+
+draw_set_halign(fa_center);
+draw_text(xCenter, yPos[0], "Space Force");
+draw_text(xCenter, yPos[1], "Mackenzie Jones");
+draw_text(xCenter, yPos[2], "&lt;esc&gt; Menu");
+
+if (yBottom - scroll + i*50 + offset &lt; view_yview - 500)
+    room_goto(menuRoom)
 </string>
           </argument>
         </arguments>

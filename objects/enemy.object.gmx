@@ -78,7 +78,7 @@ if (healt &lt; 1){
     instance_create(x-5, y, ammoPickup)
     if (random(5) &gt; 4)
         instance_create(x+40, y, healthPickup)
-    global.money += 100 + round(random(100))
+    global.money += 200 + round(random(200))
     global.enemyLoadedCount -= 1 
     instance_destroy(self);
 }

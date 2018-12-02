@@ -35,6 +35,30 @@
       </action>
       <action>
         <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>120</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -69,9 +93,33 @@ global.enemyLoadedCount = 0
 enemies[0] = 0
 enemies[1] = 0
 enemies[2] = 0
-
+global.oldPlayerX = 0
+global.oldPlayerY = 0
 cursor_sprite = aimSprite
+theAlph = 1
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -121,6 +169,8 @@ cursor_sprite = aimSprite
             <kind>1</kind>
             <string>//Load next level
 if (global.newLevel){
+    alarm[1] = 120
+    theAlph = 1
     global.doOnce = true
     global.level += 1
     if (musicStarted){
@@ -130,21 +180,21 @@ if (global.newLevel){
     global.newLevel = false
     if (global.level == 1){
         satellite.satelliteHealth = 800
-        enemies[0] = 8
+        enemies[0] = 8 //8
         enemies[1] = 0
         enemies[2] = 0
         global.enemyStockCount = 8
     }else if (global.level == 2){
         satellite.satelliteHealth = 1400
-        enemies[0] = 8
-        enemies[1] = 6
+        enemies[0] = 8 //8
+        enemies[1] = 6 //6
         enemies[2] = 0
         global.enemyStockCount = 14
     }else if (global.level == 3){
         satellite.satelliteHealth = 1800
-        enemies[0] = 8
-        enemies[1] = 8
-        enemies[2] = 4
+        enemies[0] = 8 //8
+        enemies[1] = 8 //8
+        enemies[2] = 4 //4
         global.enemyStockCount = 20
     }else{
         room_goto(finalRoom)
@@ -246,7 +296,7 @@ if (!global.playerDead &amp;&amp; global.finishedLevel &amp;&amp; global.doOnce)
 draw_set_colour(c_white)
 draw_set_font(gameFont)
 draw_text(30,50, "Level: " + string(global.level));
-draw_text(30,675, "Enemies: " + string(global.enemyStockCount + global.enemyLoadedCount));
+draw_text(30,view_hview - 200, "Enemies: " + string(global.enemyStockCount + global.enemyLoadedCount));
 
 draw_set_font(magFont)
 
@@ -258,6 +308,20 @@ if (!global.playerDead &amp;&amp; global.finishedLevel){
 }
 
 draw_text(700, 770, string(round(global.money)))
+
+xCenter = view_wview * 0.5
+yCenter = view_hview * 0.5 
+draw_set_font(creditFont)
+    draw_set_halign(fa_center)
+if (alarm[1] &gt; 0){
+    draw_text(xCenter, yCenter - 100, "Training Mission: Protect the satellite")
+}else if (theAlph &gt; 0){
+    theAlph -= 0.04
+    draw_set_alpha(theAlph)
+    draw_text(xCenter, yCenter - 100, "Training Mission: Protect the satellite")
+}
+draw_set_alpha(1)
+draw_set_halign(fa_left)
 </string>
           </argument>
         </arguments>

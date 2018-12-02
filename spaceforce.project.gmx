@@ -23,6 +23,7 @@
     <sound>sound\trumpSound2</sound>
     <sound>sound\trumpSound3</sound>
     <sound>sound\trumpSound4</sound>
+    <sound>sound\ding</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\shipSprite</sprite>
@@ -35,13 +36,9 @@
     <sprite>sprites\playerRocketSprite</sprite>
     <sprite>sprites\lazerAimSprite</sprite>
     <sprite>sprites\BIGlazerSprite</sprite>
-    <sprite>sprites\spaceForceSprite</sprite>
     <sprite>sprites\menuNavSprite</sprite>
     <sprite>sprites\trumpSprite</sprite>
     <sprite>sprites\boxSprite</sprite>
-    <sprite>sprites\spaceContinue</sprite>
-    <sprite>sprites\gameOverSprite</sprite>
-    <sprite>sprites\levelWonSprite</sprite>
     <sprite>sprites\satSprite</sprite>
     <sprite>sprites\healthSprite</sprite>
     <sprite>sprites\ammoSprite</sprite>
@@ -49,6 +46,15 @@
     <sprite>sprites\wasd</sprite>
     <sprite>sprites\explosionSprite</sprite>
     <sprite>sprites\aimSprite</sprite>
+    <sprites name="Text">
+      <sprite>sprites\gameOverControlsSprite</sprite>
+      <sprite>sprites\gameOverSprite</sprite>
+      <sprite>sprites\spaceContinueSprite</sprite>
+      <sprite>sprites\levelWonControlsSprite</sprite>
+      <sprite>sprites\levelWonSprite</sprite>
+      <sprite>sprites\plus100Sprite</sprite>
+      <sprite>sprites\spaceForceSprite</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background2</background>
@@ -62,19 +68,21 @@
     <font>fonts\menuFont</font>
     <font>fonts\gameFont</font>
     <font>fonts\titleFont</font>
-    <font>fonts\fnt_debug</font>
-    <font>fonts\fnt_dialogue</font>
     <font>fonts\trumpFont</font>
     <font>fonts\ammoFont</font>
+    <font>fonts\creditFont</font>
     <font>fonts\magFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\credits</object>
-    <objects name="Game UI">
+    <objects name="Text Objects">
       <object>objects\gameOverScreen</object>
+      <object>objects\gameOverControls</object>
+      <object>objects\plus100</object>
       <object>objects\levelWon</object>
+      <object>objects\levelWonControls</object>
     </objects>
-    <objects name="Game Objects">
+    <objects name="Main Game Objects">
       <object>objects\director</object>
       <object>objects\player</object>
       <object>objects\satellite</object>
@@ -87,23 +95,25 @@
       <object>objects\eBullet</object>
       <object>objects\ammoPickup</object>
       <object>objects\healthPickup</object>
-      <object>objects\finalMissionDirector</object>
       <object>objects\explosion</object>
+    </objects>
+    <objects name="Final Mission Objects">
+      <object>objects\finalMissionDirector</object>
+      <objects name="FinalRoomDialogue">
+        <object>objects\endSpeech</object>
+        <object>objects\finalRoomDirector</object>
+      </objects>
     </objects>
     <objects name="Menu items">
       <object>objects\spaceForce</object>
       <object>objects\menu</object>
       <object>objects\menuNav</object>
     </objects>
-    <objects name="Speaking">
+    <objects name="StartRoomDialogue">
       <object>objects\introDialogue</object>
       <object>objects\trump</object>
       <object>objects\trumpStartSpeech</object>
       <object>objects\firstRoomDirector</object>
-    </objects>
-    <objects name="Speaking2">
-      <object>objects\endSpeech</object>
-      <object>objects\finalRoomDirector</object>
     </objects>
     <objects name="tutorial">
       <object>objects\tutorial1</object>

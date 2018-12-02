@@ -8,34 +8,33 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="9" enumb="82">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>1</kind>
-            <string>global.level -= 1
-instance_create(x, y, player)
-global.playerDead = false
-global.newLevel = true
-instance_destroy(self)
-</string>
+            <kind>0</kind>
+            <string>60</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="27">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,8 +51,10 @@ instance_destroy(self)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(menuRoom)
+            <string>instance_create(x, y + 180, gameOverControls)
+global.money += 100
+instance_create(x + 400, y, plus100)
+audio_play_sound(ding, 1, false)
 </string>
           </argument>
         </arguments>

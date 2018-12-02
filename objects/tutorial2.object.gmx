@@ -145,10 +145,6 @@ global.bulletDamage = 10
             <kind>1</kind>
             <string>draw_sprite(wasd, 0, 10, 30)
 draw_set_font(trumpFont)
-draw_text(250, 20, "Used WASD to move.")
-draw_text(250, 70, "Try avoiding the rockets that spawn.")
-draw_text(250, 120, "If you destroy them,")
-draw_text(250, 170, "they might spawn ammo and health for you.")
 </string>
           </argument>
         </arguments>

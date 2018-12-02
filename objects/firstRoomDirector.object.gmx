@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(416, 580, trumpStartSpeech)
-instance_create(256, 700, trump)
-instance_create(80, 500, introDialogue)
+            <string>instance_create(416, 560, trumpStartSpeech)
+instance_create(256, 640, trump)
+instance_create(80, 510, introDialogue)
 
 audio_stop_all()
 audio_play_sound(catSong, 0, true)

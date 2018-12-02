@@ -53,10 +53,8 @@ cursor_sprite = aimSprite;
             <kind>1</kind>
             <string>draw_sprite(shootingSprite, 0, 1000, 300)
 draw_set_font(trumpFont)
-draw_text(10, 50, "Try shooting with point and click")
-draw_text(10, 125, "Your ammo is on the right side")
-draw_text(10, 200, "Reload is automatic when a mag is out")
-draw_text(10, 275, "But you can reload with the 'e' key")
+
+draw_text(10, 275, "r - Reload")
 </string>
           </argument>
         </arguments>

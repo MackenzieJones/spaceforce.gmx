@@ -158,9 +158,10 @@ if (!reloading &amp;&amp; mag &lt;= 0){
 }
 //Reloading
 if (reloading){
+    ammoReserve += mag
+    mag = 0
     if (alarm_get(1) == -1){
         reloading = false
-        ammoReserve += mag
         if (ammoReserve &gt; 30){
             mag = 30
             ammoReserve -= 30
@@ -239,7 +240,8 @@ else if (y &lt; 0)
             <string>draw_sprite(ammoSprite, 0, 60, 500)
 draw_set_font(magFont)
 draw_text(100, 500, mag)
-draw_text(100, 600, "&lt;esc&gt; Menu")
+draw_text(100, view_hview - 50, "&lt;esc&gt; Menu")
+draw_text(100, view_hview - 150, "&lt;space&gt; Advance")
 draw_set_font(ammoFont)
 draw_text(200, 500, ammoReserve)
 </string>
@@ -247,7 +249,7 @@ draw_text(200, 500, ammoReserve)
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="69">
+    <event eventtype="9" enumb="82">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -264,9 +266,34 @@ draw_text(200, 500, ammoReserve)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>reloading = true
-alarm[1] = 30
-//play reloading sound
+            <string>if (!reloading &amp;&amp; mag != 30){
+    audio_play_sound(reloadSound, 1, false)
+    reloading = true
+    alarm[1] = 30
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(firstRoom)
 </string>
           </argument>
         </arguments>
@@ -289,7 +316,7 @@ alarm[1] = 30
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(mainRoom)
+            <string>room_goto(menuRoom)
 </string>
           </argument>
         </arguments>

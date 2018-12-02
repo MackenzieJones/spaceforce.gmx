@@ -106,9 +106,10 @@ reloading = false
 }
 //Reloading
 if (reloading){
+    ammoReserve += mag
+    mag = 0
     if (alarm_get(1) == -1){
         reloading = false
-        ammoReserve += mag
         if (ammoReserve &gt; 30){
             mag = 30
             ammoReserve -= 30
@@ -158,46 +159,6 @@ view_yview = y - view_hview/2
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>723</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_health</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>50</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>800</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>500</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>850</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>3</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -222,7 +183,7 @@ draw_text(200, 500, ammoReserve)
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="69">
+    <event eventtype="9" enumb="82">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -239,9 +200,11 @@ draw_text(200, 500, ammoReserve)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>reloading = true
-alarm[1] = 30
-//play reloading sound
+            <string>if (!reloading &amp;&amp; mag != 30){
+    audio_play_sound(reloadSound, 1, false)
+    reloading = true
+    alarm[1] = 30
+}
 </string>
           </argument>
         </arguments>

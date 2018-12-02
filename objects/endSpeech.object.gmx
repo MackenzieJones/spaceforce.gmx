@@ -36,10 +36,11 @@ pos = 1
 dialogue[0] = "Amazing"
 dialogue[1] = "OUTSTANDING"
 dialogue[2] = "We truly have dominance of space."
-dialogue[3] = "And it only cost " + string(round(global.money)) + " Billion."
-dialogue[4] = "Our security and freedom is resting on your shoulders."
-dialogue[5] = "We know now you're up to the task."
-dialogue[6] = "Good luck out there."
+dialogue[3] = "And it only cost " + string(round(global.money)) + " Million."
+dialogue[4] = "Now it's time for the real mission."
+dialogue[5] = "Protect our satellite from foreign attacks."
+dialogue[6] = "If there's a war, you can guarantee our satellites won't be demolished."
+dialogue[7] = "Good luck out there, soldier."
 
 
 
@@ -190,7 +191,7 @@ if (array_length_1d(dialogue) == dIndex){
             <kind>1</kind>
             <string>draw_set_colour(c_white)
 draw_set_font(trumpFont)
-draw_sprite(spaceContinue, 0, x+200, y+240)
+draw_sprite(spaceContinueSprite, 0, x+200, y+170)
 draw_sprite(shipSprite, 0, x+120, y-250)
 draw_set_color(c_white)
 draw_text(x-50, y, line[0])
@@ -200,10 +201,10 @@ draw_set_font(magFont)
 if (global.realized){
     audio_stop_sound(carSong)
     draw_set_colour(c_red)
-    draw_text(700, 50, "-$" + string(round(global.money)) + "Million")
+    draw_text(700, 440, "-$" + string(round(global.money)) + "Million")
 }else{
     draw_set_color(c_white)
-    draw_text(700, 50, string(round(global.money)))
+    draw_text(700, 440, string(round(global.money)))
 }
 draw_set_color(c_white)
 </string>

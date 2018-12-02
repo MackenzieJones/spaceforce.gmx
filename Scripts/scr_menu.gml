@@ -3,12 +3,9 @@ switch (mpos){
         room_goto(tutorialRoom1)
         break
     }case 1:{
-        room_goto(tutorialRoom1)
-        break;
-    }case 2:{
         room_goto(creditRoom)
         break;
-    }case 3:{
+    }case 2:{
         game_end();
         break;
     }

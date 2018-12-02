@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(player.x, player.y, 3)
+            <string>move_towards_point(global.oldPlayerX, global.oldPlayerY, 3)
 </string>
           </argument>
         </arguments>

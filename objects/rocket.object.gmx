@@ -86,7 +86,7 @@ if(rocketHealth &lt; 1){
     instance_create(x, y, explosion)
     explode = audio_play_sound(exploSound, 1, false)
     audio_sound_pitch(explode, random_range(1, 1.2))
-    global.money += 60 + round(random(60))
+    global.money += 120 + round(random(120))
     if (random(5) &gt; 3)
         instance_create(x+40, y, healthPickup)
     if (random(5) &gt; 4)
@@ -143,7 +143,7 @@ rocketHealth -= 10
             <string>health -= 40
 instance_destroy(self);
 global.enemyLoadedCount -= 1
-global.money += 60 + round(random(10))
+global.money += 120 + round(random(120))
 instance_create(x, y, explosion)
 explode = audio_play_sound(exploSound, 1, false)
 audio_sound_pitch(explode, random_range(1, 1.2))

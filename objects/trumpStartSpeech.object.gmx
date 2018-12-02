@@ -39,7 +39,7 @@ pos = 1
 dialogue[0] = "Thanks to millions of taxpaying Americans and the hard working folks at Space Force, we can finally train our troops for the war on space."
 dialogue[1] = "We're starting with just you."
 dialogue[2] = "The force has provided the budget to create ships manned by artificial intelligence as training dummies."
-dialogue[3] = "You begins now, protect the fake sattelite from being destroyed."
+dialogue[3] = "You begin now, protect the fake satellite from being destroyed."
 dialogue[4] = "Once you've passed the training we can guarantee you will be skilled enough to protect our real satellites."
 dialogue[5] = "Our dominance in Air Space will be nothing compared to our dominance in Space Space."
 dialogue[6] = "We believe in your ability to adapt to this radical new climate."
@@ -186,7 +186,7 @@ draw_set_font(trumpFont)
 draw_text(x-50, y, line[0])
 draw_text(x-50, y+50, line[1])
 draw_text(x-50, y+100, line[2])
-draw_sprite(spaceContinue, 0, x+200, y+240)
+draw_sprite(spaceContinueSprite, 0, x+200, y+170)
 draw_sprite(shipSprite, 0, x+120, y-250)
 </string>
           </argument>

@@ -289,7 +289,7 @@ if (BIGhealth &lt; 1){
         instance_create(x+40, y, healthPickup)
     instance_destroy(self);
     global.enemyLoadedCount -= 1  
-    global.money += 500 + round(random(500))
+    global.money += 1000 + round(random(1000))
 }
 </string>
           </argument>
